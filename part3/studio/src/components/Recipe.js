@@ -1,7 +1,7 @@
 const RecipeAuthor = () => {
-   let authorLink = "";
-   let authorPhoto = "";
-   let authorName = "";
+   let authorLink = "https://www.ambitiouskitchen.com/wp-content/uploads/2019/12/blueberrycookies-2-594x594.jpg";
+   let authorPhoto = "https://www.ambitiouskitchen.com/wp-content/uploads/2019/08/DSCF6949sq-582x582.jpg";
+   let authorName = "Monique Volz";
 
    return (
       <div>
@@ -15,16 +15,26 @@ const RecipeAuthor = () => {
 }
 
 const RecipeIngredients = () => {
-   const ingredients = [];
+   const ingredients = [
+      'coconut oil',
+      'dark brown sugar',
+      'egg',
+      'vanilla',
+      'flour',
+      'frozen blueberries'
+   ];
+
+   // map over an array to produce list items dynamically (if more items in array than list items)
+   let ingredientListItems = ingredients.map((ingredient, index) => {
+      return <li key={index}>{ingredient}</li>;
+   });
+
+   //replace hard code of list items with {ingredientListItems}
    return(
       <div>
          <h3>Recipe Ingredients</h3>
          <ul>
-            <li>{ingredients[0]}</li>
-            <li>{ingredients[1]}</li>
-            <li>{ingredients[2]}</li>
-            <li>{ingredients[3]}</li>
-            <li>{ingredients[4]}</li>
+           {ingredientListItems}
          </ul>
       </div>
    );
@@ -34,8 +44,8 @@ const RecipeDescription = () => {
    return (
       <div> 
          <div>
-            <h1></h1>
-            <p></p>
+            <h1>White Chocolate Blueberry Oatmeal Cookies</h1>
+            <p>What’s not to love about chewy blueberry oatmeal cookies bursting with juicy blueberries in between layers of coconut and sweet white chocolate chunks?</p>
          </div>
          <div className="recipePhotoBlock">
             <RecipeIngredients />
@@ -47,7 +57,7 @@ const RecipeDescription = () => {
 
 const RecipePhoto = () => {
    return (
-      <img src="" alt="" className="imageUpdates"/>
+      <img src="https://www.ambitiouskitchen.com/wp-content/uploads/2019/12/blueberrycookies-2-594x594.jpg" alt="" className="imageUpdates" height="450px"/>
    );
 }
 
